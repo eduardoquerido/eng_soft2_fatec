@@ -1,0 +1,8 @@
+# Aqui estão todas as libs necessárias para rodar a aplicação
+
+# Libs principais
+
+Django==3.0.3
+
+# Libs de dependências
+

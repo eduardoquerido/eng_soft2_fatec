@@ -1,0 +1,7 @@
+-r base.txt
+
+# Aqui estão as libs necessárias para rodar a aplicação em PRODUÇÃO
+
+# Libs de PRODUÇÃO
+
+gunicorn==20.0.4
