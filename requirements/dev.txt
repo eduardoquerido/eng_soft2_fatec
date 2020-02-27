@@ -1,0 +1,8 @@
+-r base.txt
+
+# Aqui estão todas as libs necessárias para desenvolver a aplicação
+
+
+# Libs de Desenvolvimento
+
+ipython==7.12.0 # interface de desenvolvimento python baseado no IDLE
