@@ -1,6 +1,6 @@
 # Engenharia de Software II 
 
-## Nome Projeto: <nome_do_projeto>
+## Nome Projeto: Recrutamento Online
 
 ### Groupo:
 
@@ -16,15 +16,15 @@ Como rodar a aplicação?
 
 1. Criar um ambiente virtual:
 
-    > $ pip3 install virtualenv
+    > $ pip install virtualenv
 
-    > $ mkvirtualenv <nome_do_ambiente_virtual> Ex: mkvirtualenv gsw_project
+    > $ mkvirtualenv <nome_do_ambiente_virtual> Ex: mkvirtualenv gsw-project
 
 2. Navegar até a pasta do ambiente virtual, no caso "$ cd gsw_project/bin/", nesta pasta ativar o virtualenv com o comando "activate"
 
 3. Com o ambiente virtual criado, entrar na pasta de destino da aplicação que você queira deixá-lo e fazer o clone da aplicação que está no github.
 
-    > $ git clone git@github.com:eduardoquerido/eng_soft2_fatec.git 
+    > $ git clone --single-branch --branch homologacao git@github.com:eduardoquerido/eng_soft2_fatec.git 
 
 4. Com o ambiente virtual ativado, instalar os requirements do projeto
 
@@ -35,3 +35,23 @@ Como rodar a aplicação?
 5. Feito isso, teste a aplicação com:
 
     > $ python3 manage.py runserver --settings gsw_project.settings.local_dev
+
+
+
+============================================================================================================================================================================
+
+
+## Rodando com docker-compose
+
+#### Fica-se subentendido que já está com docker e docker-compose tudo instalado
+##### Caso contrário vá até eng_soft2_fatec/documentacao e encontre o arquivo Docker.md
+
+Encontre o arquivo docker-compose.yml
+
+    No diretório padrão ele encontra-se em:
+
+    $ /eng_soft2_fatec/docker-compose.yml
+
+Rode a aplicação com:
+
+    $ docker-compose up --build 
