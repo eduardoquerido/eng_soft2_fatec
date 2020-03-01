@@ -3,6 +3,7 @@
 # Libs principais
 
 Django==3.0.3
+psycopg2-binary==2.8.4
 
 # Libs de dependências
 
