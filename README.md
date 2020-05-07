@@ -4,11 +4,13 @@
 
 ### Groupo:
 
-    - Cleber Silva
-    - Eduardo Querido
+    - Cleber Silva (SM)
+    - Eduardo Querido (PO)
     - João Cruz
     - José Francisco
     - Willian Couto
+    
+## Projeto
 
 ## Orientações para os devs
 
