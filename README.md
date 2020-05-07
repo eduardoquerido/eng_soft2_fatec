@@ -15,7 +15,7 @@
 #### Documentação e Entregáveis
 
 
-0. [Entrega - Sprint 0](#the-header)
+0. [Entrega - Sprint 0](https://github.com/eduardoquerido/eng_soft2_fatec/tree/homologacao/documentacao/sprint_0)
 
 1. [Entrega - Sprint 1](#the-header)
 
