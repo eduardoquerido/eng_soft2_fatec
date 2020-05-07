@@ -12,48 +12,20 @@
     
 ## Projeto
 
-## Orientações para os devs
-
-Como rodar a aplicação? 
-
-1. Criar um ambiente virtual:
-
-    > $ pip install virtualenv
-
-    > $ mkvirtualenv <nome_do_ambiente_virtual> Ex: mkvirtualenv gsw-project
-
-2. Navegar até a pasta do ambiente virtual, no caso "$ cd gsw_project/bin/", nesta pasta ativar o virtualenv com o comando "activate"
-
-3. Com o ambiente virtual criado, entrar na pasta de destino da aplicação que você queira deixá-lo e fazer o clone da aplicação que está no github.
-
-    > $ git clone --single-branch --branch homologacao git@github.com:eduardoquerido/eng_soft2_fatec.git 
-
-4. Com o ambiente virtual ativado, instalar os requirements do projeto
-
-    > $ pip install -r requirement.txt (no caso, o projeto terá mais de um requirement, por tanto, provavelmente mudando para dev.txt que irá puxar de um base.txt e um production.txt que também puxará do base)
-
-#### Obs: Posteriormente será criado uma imagem Docker para facilitar os passos anteriores
-
-5. Feito isso, teste a aplicação com:
-
-    > $ python3 manage.py runserver --settings gsw_project.settings.local_dev
+#### Documentação e Entregáveis
 
 
+0. [Entrega - Sprint 0](#the-header)
 
-============================================================================================================================================================================
+1. [Entrega - Sprint 1](#the-header)
 
+2. [Entrega - Sprint 2](#the-header)
 
-## Rodando com docker-compose
+3. [Entrega - Sprint 3](#the-header)
 
-#### Fica-se subentendido que já está com docker e docker-compose tudo instalado
-##### Caso contrário vá até eng_soft2_fatec/documentacao e encontre o arquivo Docker.md
+4. [Entrega - Sprint 4](#the-header)
 
-Encontre o arquivo docker-compose.yml
+5. [Entrega - Sprint 5](#the-header)
 
-    No diretório padrão ele encontra-se em:
+6. [Entrega - Sprint 6 - Final](#the-header)
 
-    $ /eng_soft2_fatec/docker-compose.yml
-
-Rode a aplicação com:
-
-    $ docker-compose up --build 
