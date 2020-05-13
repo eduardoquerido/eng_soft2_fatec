@@ -17,7 +17,7 @@
 
 0. [Entrega - Sprint 0](https://github.com/eduardoquerido/eng_soft2_fatec/tree/master/documentacao/sprint_0)
 
-1. [Entrega - Sprint 1](https://github.com/eduardoquerido/eng_soft2_fatec/tree/master/documentacao/sprint_0)
+1. [Entrega - Sprint 1](https://github.com/eduardoquerido/eng_soft2_fatec/tree/master/documentacao/sprint_1)
 
 2. [Entrega - Sprint 2](#the-header)
 
