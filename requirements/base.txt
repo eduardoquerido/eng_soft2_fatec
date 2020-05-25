@@ -19,7 +19,7 @@
 # Adicionae Libs Para PRODUCAO E Desenvolvimento abaixo
 # =====================================================
 
-Django==2.2
+Django==2.2.10
 psycopg2-binary==2.8.5
 rules==2.0.1
 git+ssh://git@git.znc.com.br/necto/nectools.git@39a3c4d486435bb7d4ce174bf43d485aaa0af9bc#egg=nectools
