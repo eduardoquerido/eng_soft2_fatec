@@ -168,7 +168,7 @@ SRID = 4326
 MUNICIPIOS_SRID = 4674
 
 AUTH_USER_MODEL = 'core.User'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/administracao/user'
 
 AUTHENTICATION_BACKENDS = (
     'rules.permissions.ObjectPermissionBackend',

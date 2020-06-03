@@ -17,5 +17,5 @@ class ProjetoMenuMixin(MenuMixin, PermissionRequiredMixin):
                 'subsections': [
                     ('usuarios', reverse_lazy('user_list'), 'Usuários', ''),
                 ]
-            },
+            }
         }
