@@ -22,9 +22,7 @@
 Django==2.2
 psycopg2-binary==2.8.5
 rules==2.0.1
-git+ssh://git@git.znc.com.br/necto/nectools.git@39a3c4d486435bb7d4ce174bf43d485aaa0af9bc#egg=nectools
 git+https://git@github.com/znc-sistemas/django-municipios.git@68b6a4f9e7303674fd1989c42095618e4a71bc01#egg=municipios
-git+ssh://git@git.znc.com.br/necto/django-bootstrap4-form.git@00d44078fc7c875a1f00afd357453f702f0751ca#egg=django-bootstrap4-form
 Pillow==6.0.0
 chardet==3.0.4
 django_select2==7.2.4
