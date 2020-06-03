@@ -51,8 +51,6 @@ INSTALLED_APPS = [
     'bootstrap4_form',
     'nectools',
     'core',
-    'django_select2',
-
 ]
 
 MIDDLEWARE = [
@@ -92,7 +90,7 @@ WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'gsw',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
@@ -168,7 +166,6 @@ STATICFILES_FINDERS = (
 
 SRID = 4326
 MUNICIPIOS_SRID = 4674
-MUNICIPIOS_GEO = False
 
 AUTH_USER_MODEL = 'core.User'
 LOGIN_REDIRECT_URL = '/'

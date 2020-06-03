@@ -1,5 +1,5 @@
 """
-WSGI config for iterpi project.
+WSGI config for gsw project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

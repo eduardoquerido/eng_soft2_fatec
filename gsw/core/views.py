@@ -4,7 +4,9 @@ from core import forms, menu_mixin, models
 from django.contrib.auth import logout
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
+from nectools.views import JSONResponseView
 from nectools.views import base as nectools_views
+from nectools.views import mixins as nectools_mixins
 
 
 def logout_view(request):
@@ -12,19 +14,12 @@ def logout_view(request):
     return redirect('/')
 
 
-class Home(
-    menu_mixin.ProjectMenuMixin,
-    nectools_views.BaseNectoView,
-    TemplateView
-):
+class Home(menu_mixin.ProjetoMenuMixin, nectools_views.BaseNectoView, TemplateView):
     template_name = 'home.html'
     current_section = 'home'
 
 
-class UserListView(
-    menu_mixin.ProjectMenuMixin,
-    nectools_views.NectoListView
-):
+class UserListView(menu_mixin.ProjetoMenuMixin, nectools_views.NectoListView):
     filter_by_user = False
     permission_required = ''
     form_class = forms.UserSearchForm
@@ -32,10 +27,7 @@ class UserListView(
     sub_current_section = 'usuarios'
 
 
-class UserCreateView(
-    menu_mixin.ProjectMenuMixin,
-    nectools_views.NectoCreateView
-):
+class UserCreateView(menu_mixin.ProjetoMenuMixin, nectools_views.NectoCreateView):
     filter_by_user = False
     permission_required = ''
     current_section = 'administracao'
@@ -50,10 +42,7 @@ class UserCreateView(
     ]
 
 
-class UserUpdateView(
-    menu_mixin.ProjectMenuMixin,
-    nectools_views.NectoUpdateView
-):
+class UserUpdateView(menu_mixin.ProjetoMenuMixin, nectools_views.NectoUpdateView):
     filter_by_user = False
     detail_url = False
     permission_required = ''

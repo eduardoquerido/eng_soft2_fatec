@@ -51,12 +51,7 @@ class UserAdd(models.Model):
     '''
         classe abstrata armazena user que criou registro
     '''
-    user_add = models.ForeignKey(
-        User,
-        related_name="%(app_label)s_%(class)s_created_by",
-        editable=False,
-        on_delete=models.CASCADE
-    )
+    user_add = models.ForeignKey(User, related_name="%(app_label)s_%(class)s_created_by", editable=False, on_delete=models.CASCADE)
     date_add = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
@@ -67,12 +62,7 @@ class UserUpd(models.Model):
     '''
         classe abstrata armazena user que Editou registro
     '''
-    user_upd = models.ForeignKey(
-        User,
-        related_name="%(app_label)s_%(class)s_modified_by",
-        editable=False,
-        on_delete=models.CASCADE
-    )
+    user_upd = models.ForeignKey(User, related_name="%(app_label)s_%(class)s_modified_by", editable=False, on_delete=models.CASCADE)
     date_upd = models.DateTimeField(auto_now=True, editable=False)
 
     class Meta:
