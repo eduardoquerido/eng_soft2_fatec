@@ -1,8 +1,8 @@
 from core import models
-from nectools import forms as nectools_forms
+from tools import forms as tools_forms
 
 
-class UserSearchForm(nectools_forms.BaseSearchForm):
+class UserSearchForm(tools_forms.BaseSearchForm):
     class Meta:
         base_qs = models.User.objects.filter(
             is_active=True

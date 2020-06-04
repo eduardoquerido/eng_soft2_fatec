@@ -12,7 +12,6 @@ from django.http import JsonResponse
 from django.http import StreamingHttpResponse
 from django.urls import reverse_lazy
 
-from nectools.utils import Echo
 
 try:
     SIDEBAR_MENU = settings.NECTOOLS_SIDEMENU
@@ -30,7 +29,7 @@ except AttributeError:
     adm_menu_perms = []
 
 
-from nectools.forms import UserAddUpdFormMixin
+from tools.forms import UserAddUpdFormMixin
 
 
 class LoginRequiredMixin(object):
@@ -370,21 +369,3 @@ class PaginationQueryStringMixin(object):
         return context
 
 
-class CSVMixin(object):
-    filename = 'download'
-
-    def get_filename(self):
-        return self.filename
-
-    def get(self, request, *args, **kwargs):
-        csv_file = Echo()
-        writer = csv.writer(csv_file)
-
-        response = StreamingHttpResponse((
-            writer.writerow(row) for row in self.rows()
-        ), content_type="text/csv")
-        response['Content-Disposition'] = 'attachment; filename="%s.csv"' % self.get_filename()
-        return response
-
-    def rows(self):
-        yield []

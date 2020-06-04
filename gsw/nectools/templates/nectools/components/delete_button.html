@@ -1,9 +1,0 @@
-{% if can_delete %}
-	<a onclick="return confirm('{{ message }}')" class="{{ btn_class }}" href="{{ url }}?next={{ next_url }}">
-		<i class="fa fa-trash"></i>
-	</a>
-{% else %}
-	<a class="{{ btn_class }} disabled" href="javascript:void(0);">
-	    <i class="fa fa-trash"></i>
-	</a>
-{% endif %}

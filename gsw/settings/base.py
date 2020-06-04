@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'rules.apps.AutodiscoverRulesConfig',
     'municipios',
     'bootstrap4_form',
-    'nectools',
+    'tools',
     'core',
 ]
 

@@ -5,23 +5,23 @@ from collections import OrderedDict
 from django.views import generic
 from django.views.generic import edit
 
-from nectools import views as nectools_views
-from nectools.views import mixins as nectools_mixins
-from nectools.views import multiform as nectools_multiforms
+from tools import views as tools_views
+from tools.views import mixins as tools_mixins
+from tools.views import multiform as tools_multiform
 
 
-class BaseNectoView(
-    nectools_mixins.MenuMixin,
-    nectools_mixins.PageInfoMixin
+class BaseView(
+    tools_mixins.MenuMixin,
+    tools_mixins.PageInfoMixin
 ):
     pass
 
 
-class NectoDetailView(
-    BaseNectoView,
-    nectools_mixins.GetModelMixin,
-    nectools_mixins.CreateUpdateURLMixin,
-    nectools_mixins.ListURLMixin,
+class BaseDetailView(
+    BaseView,
+    tools_mixins.GetModelMixin,
+    tools_mixins.CreateUpdateURLMixin,
+    tools_mixins.ListURLMixin,
     generic.DetailView
 ):
     url_delete_redirect = None
@@ -96,19 +96,19 @@ class NectoDetailView(
         return rows
 
 
-class NectoListView(
-    BaseNectoView,
-    nectools_mixins.GetModelMixin,
-    nectools_mixins.CreateUpdateURLMixin,
-    nectools_mixins.DetailURLMixin,
-    nectools_views.SearchFormListView,
+class BaseListView(
+    BaseView,
+    tools_mixins.GetModelMixin,
+    tools_mixins.CreateUpdateURLMixin,
+    tools_mixins.DetailURLMixin,
+    tools_views.SearchFormListView,
 ):
     paginate_by = 10
 
     def get(self, request, *args, **kwargs):
         if 'paginate_by' in self.request.GET:
             self.request.session['paginate_by'] = int(self.request.GET['paginate_by'])
-        return super(NectoListView, self).get(request, *args, **kwargs)
+        return super(BaseListView, self).get(request, *args, **kwargs)
 
     def get_fields(self):
         fields = list(self.form.fields.keys())
@@ -124,7 +124,7 @@ class NectoListView(
 
     def get_context_data(self, *args, **kwargs):
         self.model = self.get_model()
-        ctx = super(NectoListView, self).get_context_data(*args, **kwargs)
+        ctx = super(BaseListView, self).get_context_data(*args, **kwargs)
         app_model = "%s.%s" % (self.model._meta.app_label, self.model._meta.model_name)
         ctx['request_path'] = self.request.path
         ctx['total_object_list'] = self.form.Meta.base_qs.all().count()
@@ -143,39 +143,39 @@ class NectoListView(
         return self.paginate_by
 
 
-class NectoCreateView(
-    BaseNectoView,
-    nectools_mixins.SuccessURLMixin,
-    nectools_mixins.FormMessagesMixin,
-    nectools_mixins.UserAddUpdViewMixin,
-    nectools_mixins.AddWidgetViewForm,
-    nectools_mixins.GetModelMixin,
-    nectools_mixins.ListURLMixin,
+class BaseCreateView(
+    BaseView,
+    tools_mixins.SuccessURLMixin,
+    tools_mixins.FormMessagesMixin,
+    tools_mixins.UserAddUpdViewMixin,
+    tools_mixins.AddWidgetViewForm,
+    tools_mixins.GetModelMixin,
+    tools_mixins.ListURLMixin,
     edit.CreateView,
 ):
     pass
 
 
-class NectoUpdateView(
-    BaseNectoView,
-    nectools_mixins.SuccessURLMixin,
-    nectools_mixins.FormMessagesMixin,
-    nectools_mixins.UserAddUpdViewMixin,
-    nectools_mixins.AddWidgetViewForm,
-    nectools_mixins.GetModelMixin,
-    nectools_mixins.ListURLMixin,
-    nectools_mixins.DetailURLMixin,
+class BaseUpdateView(
+    BaseView,
+    tools_mixins.SuccessURLMixin,
+    tools_mixins.FormMessagesMixin,
+    tools_mixins.UserAddUpdViewMixin,
+    tools_mixins.AddWidgetViewForm,
+    tools_mixins.GetModelMixin,
+    tools_mixins.ListURLMixin,
+    tools_mixins.DetailURLMixin,
     edit.UpdateView
 ):
     pass
 
 
-class NectoFormsetCreateView(
-    BaseNectoView,
-    nectools_mixins.UserAddUpdViewMixin,
-    nectools_mixins.GetModelMixin,
-    nectools_mixins.ListURLMixin,
-    nectools_multiforms.FormsetsMixin,
+class BaseFormsetCreateView(
+    BaseView,
+    tools_mixins.UserAddUpdViewMixin,
+    tools_mixins.GetModelMixin,
+    tools_mixins.ListURLMixin,
+    tools_multiform.FormsetsMixin,
     edit.CreateView
 ):
     def get_formset_kwargs(self):
@@ -187,12 +187,12 @@ class NectoFormsetCreateView(
         return self.model._meta.model_name
 
 
-class NectoFormsetUpdateView(
-    BaseNectoView,
-    nectools_mixins.UserAddUpdViewMixin,
-    nectools_mixins.GetModelMixin,
-    nectools_mixins.ListURLMixin,
-    nectools_multiforms.FormsetsMixin,
+class BaseFormsetUpdateView(
+    BaseView,
+    tools_mixins.UserAddUpdViewMixin,
+    tools_mixins.GetModelMixin,
+    tools_mixins.ListURLMixin,
+    tools_multiform.FormsetsMixin,
     edit.UpdateView
 ):
     def get_formset_kwargs(self):

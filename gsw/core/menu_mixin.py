@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from nectools.views.mixins import MenuMixin
+from tools.views.mixins import MenuMixin
 from rules.contrib.views import PermissionRequiredMixin
 
 

@@ -9,7 +9,7 @@ from django.views.generic.base import ContextMixin
 from django.views.generic.base import TemplateResponseMixin
 from django.views.generic.edit import ProcessFormView
 
-from nectools.forms import CustomInlineFormSet
+from tools.forms import CustomInlineFormSet
 
 
 class MultiFormMixin(ContextMixin):
@@ -142,7 +142,11 @@ class ProcessMultipleFormsView(ProcessFormView):
             return self.forms_invalid(forms)
 
 
-class BaseMultiFormsView(TemplateResponseMixin, MultiFormMixin, ProcessMultipleFormsView):
+class BaseMultiFormsView(
+    TemplateResponseMixin,
+    MultiFormMixin,
+    ProcessMultipleFormsView
+):
     pass
 
 
