@@ -17,5 +17,15 @@ class ProjetoMenuMixin(MenuMixin, PermissionRequiredMixin):
                 'subsections': [
                     ('usuarios', reverse_lazy('user_list'), 'Usuários', ''),
                 ]
+            },
+            'vagas': {
+                'label': 'Vagas',
+                'perm': '',
+                'icon': 'fa-cogs',
+                'url': '#',
+                'active': False,
+                'subsections': [
+                    ('vagas', reverse_lazy('vagas_list'), 'Vagas', ''),
+                ]
             }
         }

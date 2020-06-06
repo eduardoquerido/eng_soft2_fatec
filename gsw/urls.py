@@ -18,5 +18,6 @@ from django.urls import include, path, re_path
 
 urlpatterns = [
     re_path(r'^', include('gsw.core.urls')),
-    re_path(r'^municipios_app/', include('municipios.urls')),
+    re_path(r'^vagas/', include('gsw.vagas.urls')),
+    path('select2/', include('django_select2.urls')),
 ]

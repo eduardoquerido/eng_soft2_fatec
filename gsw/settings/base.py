@@ -47,10 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rules.apps.AutodiscoverRulesConfig',
-    'municipios',
     'bootstrap4_form',
     'tools',
     'core',
+    'vagas',
+    'django_select2',
 ]
 
 MIDDLEWARE = [
@@ -164,11 +165,8 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-SRID = 4326
-MUNICIPIOS_SRID = 4674
-
 AUTH_USER_MODEL = 'core.User'
-LOGIN_REDIRECT_URL = '/administracao/user'
+LOGIN_REDIRECT_URL = '/vagas/vagas'
 
 AUTHENTICATION_BACKENDS = (
     'rules.permissions.ObjectPermissionBackend',
