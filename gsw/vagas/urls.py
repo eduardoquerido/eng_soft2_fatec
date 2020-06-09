@@ -5,13 +5,13 @@ urlpatterns = [
     path('vagas/', include([
         path(
             '',
-            views.VagasListView.as_view(),
-            name='vagas_list'
+            views.VagaListView.as_view(),
+            name='vaga_list'
         ),
         path(
             'novo/',
-            views.VagasCreateView.as_view(),
-            name='vagas_form'
+            views.VagaCreateView.as_view(),
+            name='vaga_form'
         ),
         # path(
         #     'json/',
@@ -20,8 +20,8 @@ urlpatterns = [
         # ),
         path(
             '<int:pk>/',
-            views.VagasUpdateView.as_view(),
-            name='vagas_form'
+            views.VagaUpdateView.as_view(),
+            name='vaga_form'
         ),
     ])),
 ]

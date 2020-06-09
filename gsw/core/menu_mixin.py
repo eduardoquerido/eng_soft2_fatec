@@ -25,7 +25,7 @@ class ProjetoMenuMixin(MenuMixin, PermissionRequiredMixin):
                 'url': '#',
                 'active': False,
                 'subsections': [
-                    ('vagas', reverse_lazy('vagas_list'), 'Vagas', ''),
+                    ('vagas', reverse_lazy('vaga_list'), 'Vagas', ''),
                 ]
             }
         }

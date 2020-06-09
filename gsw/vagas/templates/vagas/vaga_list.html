@@ -3,17 +3,22 @@
 
 {% block table_content %}
   <tr>
+    <th class="ordered">ID da Vaga</th>
     <th class="ordered">Nome</th>
+    <th class="ordered">Quantidade de Vagas</th>
   </tr>
   {% for obj in object_list %}
   <tr>
     <td>
       <a href="{% url update_url obj.pk %}">
-        {{ obj.nome_vaga }}
+      {{ obj.id_vaga}}
       </a>
     </td>
     <td>
       {{ obj.qtd_vaga}}
+    </td>
+    <td>
+        {{ obj.nome_vaga }}
     </td>
   </tr>
   {% empty %}

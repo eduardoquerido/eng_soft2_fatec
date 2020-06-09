@@ -3,22 +3,22 @@ from core import menu_mixin
 from tools.views import base as tools_views
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse, JsonResponse
-from vagas.forms import (VagasForm, VagasSearchForm)
-from vagas.models import Vagas
+from vagas.forms import (VagaForm, VagaSearchForm)
+from vagas.models import Vaga
 
 
-class VagasListView(
+class VagaListView(
     menu_mixin.ProjetoMenuMixin,
     tools_views.BaseListView
 ):
     filter_by_user = False
     permission_required = ''
-    form_class = VagasSearchForm
+    form_class = VagaSearchForm
     current_section = 'vagas'
     sub_current_section = 'vaga'
 
 
-class VagasCreateView(
+class VagaCreateView(
     menu_mixin.ProjetoMenuMixin,
     tools_views.BaseCreateView
 ):
@@ -26,11 +26,11 @@ class VagasCreateView(
     permission_required = ''
     current_section = 'vagas'
     sub_current_section = 'vaga'
-    model = Vagas
-    form_class = VagasForm
+    model = Vaga
+    form_class = VagaForm
 
 
-class VagasUpdateView(
+class VagaUpdateView(
     menu_mixin.ProjetoMenuMixin,
     tools_views.BaseUpdateView
 ):
@@ -39,5 +39,6 @@ class VagasUpdateView(
     permission_required = ''
     current_section = 'vagas'
     sub_current_section = 'vaga'
-    model = Vagas
-    form_class = VagasForm
+    model = Vaga
+    form_class = VagaForm
+

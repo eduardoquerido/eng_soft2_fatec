@@ -1,21 +1,21 @@
 from django import forms
 from tools import forms as tools_forms
-from vagas.models import (Vagas, Competencia)
+from vagas.models import (Vaga, Competencia)
 from django_select2 import forms as ds2_forms
-#from django_select2.forms import ModelSelect2MultipleWidget
+# from django_select2.forms import ModelSelect2MultipleWidget, ModelSelect2Widget
 from vagas.choices import (BENEFICIOS)
 
 
-class VagasSearchForm(tools_forms.BaseSearchForm):
+class VagaSearchForm(tools_forms.BaseSearchForm):
     class Meta:
-        base_qs = Vagas.objects.filter()
+        base_qs = Vaga.objects.filter()
         search_fields = [
             'nome_vaga',
             'id_vaga',
         ]
 
 
-class VagasForm(
+class VagaForm(
     forms.ModelForm
 ):
 
@@ -31,8 +31,9 @@ class VagasForm(
     )
 
     class Meta:
-        model = Vagas
+        model = Vaga
         fields = [
+            'id_vaga',
             'nome_vaga',
             'qtd_vaga',
             'categoria',
@@ -42,3 +43,4 @@ class VagasForm(
             'exp_requerida',
             'status'
         ]
+

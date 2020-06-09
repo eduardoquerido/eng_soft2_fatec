@@ -14,7 +14,7 @@ class Competencia(models.Model):
     def __str__(self):
         return self.nome
 
-class Vagas(UserAdd, UserUpd):
+class Vaga(UserAdd, UserUpd):
 
     STATUS = [
         (1, "Ativo"),
@@ -39,13 +39,7 @@ class Vagas(UserAdd, UserUpd):
         blank=False,
         null=False
     )
-    competencia = models.ForeignKey(
-        Competencia,
-        verbose_name="Competências exigidas",
-        blank=False,
-        null=True,
-        on_delete=models.PROTECT
-    )
+    competencia = models.ManyToManyField('Competencia')
     categoria = models.SmallIntegerField(
         choices=CATEGORIAS,
         blank=False,
@@ -66,7 +60,6 @@ class Vagas(UserAdd, UserUpd):
         choices=BENEFICIOS,
         blank=True,
         null=True,
-        default=None,
     )
     descricao = models.TextField(
         verbose_name="Descrição da Vaga",
@@ -78,3 +71,6 @@ class Vagas(UserAdd, UserUpd):
         blank=True,
         null=True
     )
+
+    def __str__(self):
+        return self.nome_vaga

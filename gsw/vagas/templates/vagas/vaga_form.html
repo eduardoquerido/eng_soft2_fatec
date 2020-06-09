@@ -4,7 +4,8 @@
 
 {% block form_content %}
   <div class="row">
-    {{ form.status|as_bs4:"col-md-6" }}
+    {{ form.status|as_bs4:"col-md-4" }}
+    {{ form.id_vaga|as_bs4:"col-md-4" }}
   </div>
   <div class="row">
     {{ form.nome_vaga|as_bs4:"col-md-5 col-sm-8" }}
