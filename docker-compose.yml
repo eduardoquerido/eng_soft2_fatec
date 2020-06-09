@@ -11,21 +11,21 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=gsw_project
+      - POSTGRES_DB=project
     ports:
       - "${PG_PORT}:5432"
 
-    container_name: dev_gsw_project_db
+    container_name: dev_project_db
 
   web:
     build:
       context: .
       args:
-        APP_NAME: gsw_project
+        APP_NAME: project
         # ambiente de DEV
         ENVIRONMENT: dev
 
-    container_name: dev_gsw_project
+    container_name: dev_project
 
     volumes:
       - ./${APP_NAME}/:/usr/src/app/
@@ -35,7 +35,7 @@ services:
       - ./.env
 
     #o 0.0.0.0 é importante para funcionar com qualquer IP
-    command: ["python3", "manage.py", "runserver", "0.0.0.0:8000", "--settings", "gsw_project.settings.${SETTINGS_FILE}"]
+    command: ["python3", "manage.py", "runserver", "0.0.0.0:8000", "--settings", "project.settings.${SETTINGS_FILE}"]
 
     # SEMPRE verifique se isso pode ser um problema
     #read_only: true

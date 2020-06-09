@@ -12,9 +12,9 @@ Como rodar a aplicação?
 
     > $ pip install virtualenv
 
-    > $ mkvirtualenv <nome_do_ambiente_virtual> Ex: mkvirtualenv gsw-project
+    > $ mkvirtualenv <nome_do_ambiente_virtual> Ex: mkvirtualenv project
 
-2. Navegar até a pasta do ambiente virtual, no caso "$ cd gsw_project/bin/", nesta pasta ativar o virtualenv com o comando "activate"
+2. Navegar até a pasta do ambiente virtual, no caso "$ cd project/bin/", nesta pasta ativar o virtualenv com o comando "activate"
 
 3. Com o ambiente virtual criado, entrar na pasta de destino da aplicação que você queira deixá-lo e fazer o clone da aplicação que está no github.
 
@@ -28,7 +28,7 @@ Como rodar a aplicação?
 
 5. Feito isso, teste a aplicação com:
 
-    > $ python3 manage.py runserver --settings gsw_project.settings.local_dev
+    > $ python3 manage.py runserver --settings project.settings.local_dev
 
 
 

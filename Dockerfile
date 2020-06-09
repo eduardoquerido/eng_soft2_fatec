@@ -9,7 +9,7 @@ FROM python:3.7-slim-buster
 ARG APP_NAME
 ARG REQUIREMENTS_FILE=dev
 
-ENV APP_NAME=gsw_project
+ENV APP_NAME=project
 
 ENV REQUIREMENTS_PATH=./requirements
 ENV WORK_DIR=/usr/src/app

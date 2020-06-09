@@ -31,7 +31,7 @@ Você saberá que está dentro do banco quando seu terminal ficar da seguinte fo
 
 Em seguida, digite:
 
-	postgres=# CREATE DATABASE gsw_project;
+	postgres=# CREATE DATABASE project_db;
 
 
 OBS: pode ser que seja preciso alterar a senha do postgres (as vezes a senha padrão não é postgres)

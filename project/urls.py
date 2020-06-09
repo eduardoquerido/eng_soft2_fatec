@@ -1,4 +1,4 @@
-"""gsw URL Configuration
+"""project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -17,7 +17,7 @@ Including another URLconf
 from django.urls import include, path, re_path
 
 urlpatterns = [
-    re_path(r'^', include('gsw.core.urls')),
-    re_path(r'^vagas/', include('gsw.vagas.urls')),
+    re_path(r'^', include('project.core.urls')),
+    re_path(r'^vagas/', include('project.vagas.urls')),
     path('select2/', include('django_select2.urls')),
 ]
