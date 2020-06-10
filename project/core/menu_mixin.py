@@ -26,6 +26,7 @@ class ProjetoMenuMixin(MenuMixin, PermissionRequiredMixin):
                 'active': False,
                 'subsections': [
                     ('vagas', reverse_lazy('vaga_list'), 'Vagas', ''),
+                    ('competencias', reverse_lazy('competencia_list'), 'Competências', ''),
                 ]
             }
         }

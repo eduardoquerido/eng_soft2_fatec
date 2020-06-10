@@ -24,4 +24,21 @@ urlpatterns = [
             name='vaga_form'
         ),
     ])),
+    path('competencias/', include([
+        path(
+            '',
+            views.CompetenciaListView.as_view(),
+            name='competencia_list'
+        ),
+        path(
+            'novo/',
+            views.CompetenciaCreateView.as_view(),
+            name='competencia_form'
+        ),
+        path(
+            '<int:pk>/',
+            views.CompetenciaUpdateView.as_view(),
+            name='competencia_form'
+        ),
+    ])),    
 ]

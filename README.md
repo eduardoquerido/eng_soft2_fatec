@@ -1,6 +1,6 @@
 # Engenharia de Software II 
 
-## Nome Projeto: Recrutamento Online
+## Nome Projeto: Vagas Online
 
 ### Groupo:
 

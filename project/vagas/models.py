@@ -4,11 +4,25 @@ from vagas.choices import (CATEGORIAS, BENEFICIOS, HORARIO_TRAB, ESTADOS)
 from core.models import (UserAdd, UserUpd)
 
 
-class Competencia(models.Model):
+class Competencia(UserAdd, UserUpd):
+    
+    class Nivel:
+        AVANCADO = 1
+        INTERMEDIARIO = 2
+        BASICO = 3
+        choices = [
+            (1, 'Avançado'),
+            (2, 'Intermediário'),
+            (3, 'Básico'),
+        ]
+    
     nome = models.CharField(
         max_length=20,
         blank=False,
         null=False
+    )
+    nivel = models.SmallIntegerField(
+        choices=Nivel.choices
     )
 
     def __str__(self):

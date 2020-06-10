@@ -1,8 +1,7 @@
 from django import forms
 from tools import forms as tools_forms
 from vagas.models import (Vaga, Competencia)
-from django_select2 import forms as ds2_forms
-# from django_select2.forms import ModelSelect2MultipleWidget, ModelSelect2Widget
+from django_select2.forms import ModelSelect2MultipleWidget, ModelSelect2Widget
 from vagas.choices import (BENEFICIOS)
 
 
@@ -27,9 +26,13 @@ class VagaForm(
     competencia = forms.ModelMultipleChoiceField(
         queryset=Competencia.objects.all(),
         required=True,
-        widget=ds2_forms.Select2MultipleWidget,
+        widget=ModelSelect2MultipleWidget(
+            model=Competencia,
+            search_fields=[
+                'nome__icontains',
+            ]
+        )
     )
-
     class Meta:
         model = Vaga
         fields = [
@@ -44,3 +47,22 @@ class VagaForm(
             'status'
         ]
 
+class CompetenciaSearchForm(tools_forms.BaseSearchForm):
+    class Meta:
+        base_qs = Competencia.objects.filter()
+        search_fields = [
+            'nome__icontains',
+            'nivel_icontains',
+        ]
+
+
+class CompetenciaForm(
+    forms.ModelForm
+):
+
+    class Meta:
+        model = Competencia
+        fields = [
+            'nome',
+            'nivel'
+        ]
