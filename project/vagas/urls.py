@@ -40,5 +40,22 @@ urlpatterns = [
             views.CompetenciaUpdateView.as_view(),
             name='competencia_form'
         ),
-    ])),    
+    ])),
+    path('candidatos/', include([
+        path(
+            '',
+            views.CandidatoListView.as_view(),
+            name='candidato_list'
+        ),
+        path(
+            'novo/',
+            views.CandidatoCreateView.as_view(),
+            name='candidato_form'
+        ),
+        path(
+            '<int:pk>/',
+            views.CandidatoUpdateView.as_view(),
+            name='candidato_form'
+        ),
+    ])),
 ]

@@ -1,6 +1,6 @@
 from django import forms
 from tools import forms as tools_forms
-from vagas.models import (Vaga, Competencia)
+from vagas.models import (Vaga, Competencia, Candidato)
 from django_select2.forms import ModelSelect2MultipleWidget, ModelSelect2Widget
 from vagas.choices import (BENEFICIOS)
 
@@ -33,6 +33,7 @@ class VagaForm(
             ]
         )
     )
+
     class Meta:
         model = Vaga
         fields = [
@@ -46,6 +47,7 @@ class VagaForm(
             'exp_requerida',
             'status'
         ]
+
 
 class CompetenciaSearchForm(tools_forms.BaseSearchForm):
     class Meta:
@@ -65,4 +67,40 @@ class CompetenciaForm(
         fields = [
             'nome',
             'nivel'
+        ]
+
+
+class CandidatoSearchForm(tools_forms.BaseSearchForm):
+    class Meta:
+        base_qs = Candidato.objects.filter()
+        search_fields = [
+            'nome__icontains',
+            'cpf__icontains',
+        ]
+
+
+class CandidatoForm(
+    forms.ModelForm
+):
+
+    class Meta:
+        model = Candidato
+        fields = [
+            'nome',
+            'sexo',
+            'email',
+            'cpf',
+            'ddd',
+            'celular',
+            'ddd2',
+            'telefone',
+            'rua',
+            'bairro',
+            'cidade',
+            'numero_end',
+            'complemento',
+            'estado',
+            'curriculo',
+            'habilidades',
+            'observacoes'
         ]

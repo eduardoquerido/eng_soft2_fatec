@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 from core import menu_mixin
 from tools.views import base as tools_views
-from django.shortcuts import get_object_or_404
-from django.http import HttpResponse, JsonResponse
+# from django.shortcuts import get_object_or_404
+# from django.http import HttpResponse, JsonResponse
 from vagas.forms import (VagaForm, VagaSearchForm,
-                         CompetenciaForm, CompetenciaSearchForm)
-from vagas.models import (Vaga, Competencia)
+                         CompetenciaForm, CompetenciaSearchForm,
+                         CandidatoForm, CandidatoSearchForm)
+from vagas.models import (Vaga, Competencia, Candidato)
 
 
 class VagaListView(
@@ -90,6 +91,7 @@ class CompetenciaCreateView(
     model = Competencia
     form_class = CompetenciaForm
 
+
 class CompetenciaUpdateView(
     menu_mixin.ProjetoMenuMixin,
     tools_views.BaseUpdateView
@@ -101,3 +103,39 @@ class CompetenciaUpdateView(
     sub_current_section = 'competencias'
     model = Competencia
     form_class = CompetenciaForm
+
+
+class CandidatoListView(
+    menu_mixin.ProjetoMenuMixin,
+    tools_views.BaseListView
+):
+    filter_by_user = False
+    permission_required = ''
+    form_class = CandidatoSearchForm
+    current_section = 'vagas'
+    sub_current_section = 'candidatos'
+
+
+class CandidatoCreateView(
+    menu_mixin.ProjetoMenuMixin,
+    tools_views.BaseCreateView
+):
+    filter_by_user = False
+    permission_required = ''
+    current_section = 'vagas'
+    sub_current_section = 'candidatos'
+    model = Candidato
+    form_class = CandidatoForm
+
+
+class CandidatoUpdateView(
+    menu_mixin.ProjetoMenuMixin,
+    tools_views.BaseUpdateView
+):
+    filter_by_user = False
+    detail_url = False
+    permission_required = ''
+    current_section = 'vagas'
+    sub_current_section = 'candidatos'
+    model = Candidato
+    form_class = CandidatoForm
