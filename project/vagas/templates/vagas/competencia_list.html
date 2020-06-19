@@ -14,7 +14,13 @@
       </a>
     </td>
     <td>
-      {{ obj.nivel}}
+      {% if obj.nivel == 1 %}
+        Avançado
+      {% elif obj.nivel == 2 %}
+        Intermediário
+      {% elif obj.nivel == 3 %}
+        Básico
+      {% endif %}
     </td>
   </tr>
   {% empty %}

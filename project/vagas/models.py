@@ -26,7 +26,13 @@ class Competencia(UserAdd, UserUpd):
     )
 
     def __str__(self):
-        return self.nome
+
+        if self.nivel == 1:
+            return self.nome + " (Avançado)"
+        elif self.nivel == 2:
+            return self.nome + " (Intermediário)"
+        elif self.nivel == 3:
+            return self.nome + " (Básico)"
 
 
 class Habilidades(UserAdd, UserUpd):
