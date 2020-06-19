@@ -58,4 +58,21 @@ urlpatterns = [
             name='candidato_form'
         ),
     ])),
+    path('habilidades/', include([
+        path(
+            '',
+            views.HabilidadeListView.as_view(),
+            name='habilidade_list'
+        ),
+        path(
+            'novo/',
+            views.HabilidadeCreateView.as_view(),
+            name='habilidade_form'
+        ),
+        path(
+            '<int:pk>/',
+            views.HabilidadeUpdateView.as_view(),
+            name='habilidade_form'
+        ),
+    ])),
 ]

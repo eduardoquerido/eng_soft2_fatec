@@ -5,8 +5,9 @@ from tools.views import base as tools_views
 # from django.http import HttpResponse, JsonResponse
 from vagas.forms import (VagaForm, VagaSearchForm,
                          CompetenciaForm, CompetenciaSearchForm,
-                         CandidatoForm, CandidatoSearchForm)
-from vagas.models import (Vaga, Competencia, Candidato)
+                         CandidatoForm, CandidatoSearchForm,
+                         HabilidadeSearchForm, HabilidadeForm)
+from vagas.models import (Vaga, Competencia, Candidato, Habilidade)
 
 
 class VagaListView(
@@ -76,7 +77,7 @@ class CompetenciaListView(
     filter_by_user = False
     permission_required = ''
     form_class = CompetenciaSearchForm
-    current_section = 'vagas'
+    current_section = 'skills'
     sub_current_section = 'competencias'
 
 
@@ -86,7 +87,7 @@ class CompetenciaCreateView(
 ):
     filter_by_user = False
     permission_required = ''
-    current_section = 'vagas'
+    current_section = 'skills'
     sub_current_section = 'competencias'
     model = Competencia
     form_class = CompetenciaForm
@@ -99,7 +100,7 @@ class CompetenciaUpdateView(
     filter_by_user = False
     detail_url = False
     permission_required = ''
-    current_section = 'vagas'
+    current_section = 'skills'
     sub_current_section = 'competencias'
     model = Competencia
     form_class = CompetenciaForm
@@ -139,3 +140,39 @@ class CandidatoUpdateView(
     sub_current_section = 'candidatos'
     model = Candidato
     form_class = CandidatoForm
+
+
+class HabilidadeListView(
+    menu_mixin.ProjetoMenuMixin,
+    tools_views.BaseListView
+):
+    filter_by_user = False
+    permission_required = ''
+    form_class = HabilidadeSearchForm
+    current_section = 'skills'
+    sub_current_section = 'habilidades'
+
+
+class HabilidadeCreateView(
+    menu_mixin.ProjetoMenuMixin,
+    tools_views.BaseCreateView
+):
+    filter_by_user = False
+    permission_required = ''
+    current_section = 'skills'
+    sub_current_section = 'habilidades'
+    model = Habilidade
+    form_class = HabilidadeForm
+
+
+class HabilidadeUpdateView(
+    menu_mixin.ProjetoMenuMixin,
+    tools_views.BaseUpdateView
+):
+    filter_by_user = False
+    detail_url = False
+    permission_required = ''
+    current_section = 'skills'
+    sub_current_section = 'habilidades'
+    model = Habilidade
+    form_class = HabilidadeForm

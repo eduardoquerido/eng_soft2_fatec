@@ -35,7 +35,7 @@ class Competencia(UserAdd, UserUpd):
             return self.nome + " (Básico)"
 
 
-class Habilidades(UserAdd, UserUpd):
+class Habilidade(UserAdd, UserUpd):
     '''
     Essa classe serve para definir qual é e qual o tipo da skill que está sendo
     cadastrada, para posteriormente atribuí-las aos candidatos
@@ -49,14 +49,14 @@ class Habilidades(UserAdd, UserUpd):
         ]
 
     nome = models.CharField(
-        verbose_name="Habilidades",
+        verbose_name="Habilidade",
         max_length=20,
         blank=False,
         null=False
     )
     tipo = models.SmallIntegerField(
         choices=Tipo.choices,
-        verbose_name="Tipo de Habilidade",
+        verbose_name="Tipo da Habilidade",
         blank=False,
         null=False
     )
@@ -166,7 +166,7 @@ class Candidato(UserUpd, UserAdd):
     e para adicionar observações
     '''
     habilidades = models.ManyToManyField(
-        Habilidades,
+        'Habilidade',
         blank=True
     )
     observacoes = models.TextField(
