@@ -5,7 +5,10 @@ from core.models import (UserAdd, UserUpd)
 
 
 class Competencia(UserAdd, UserUpd):
-
+    '''
+    Essa classe serve para definir qual é e qual o tipo da competência que está sendo
+    cadastrada, para posteriormente atribuí-las as VAGAS
+    '''
     class Nivel:
         AVANCADO = 1
         INTERMEDIARIO = 2
@@ -38,7 +41,7 @@ class Competencia(UserAdd, UserUpd):
 class Habilidade(UserAdd, UserUpd):
     '''
     Essa classe serve para definir qual é e qual o tipo da skill que está sendo
-    cadastrada, para posteriormente atribuí-las aos candidatos
+    cadastrada, para posteriormente atribuí-las aos CANDIDATOS
     '''
     class Tipo:
         HARDSKILL = 1
