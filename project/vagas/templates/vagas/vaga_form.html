@@ -29,3 +29,11 @@
     {{ form.exp_requerida|as_bs4:"col-md-6" }}
   </div>
 {% endblock form_content %}
+
+{% block extra_js %}
+<script>
+  $(document).ready(function() {
+    $('#id_id_vaga').mask('0000/000', {reverse: true});
+  });
+</script>
+{% endblock extra_js %}

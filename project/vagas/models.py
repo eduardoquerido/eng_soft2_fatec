@@ -119,7 +119,7 @@ class Candidato(UserUpd, UserAdd):
         null=True
     )
     telefone = models.CharField(
-        verbose_name="Celular",
+        verbose_name="Telefone Fixo",
         max_length=10,
         blank=True,
         null=True
@@ -207,7 +207,7 @@ class Vaga(UserAdd, UserUpd):
         blank=False,
         null=False
     )
-    qtd_vaga = models.SmallIntegerField(
+    qtd_vaga = models.PositiveSmallIntegerField(
         verbose_name="Quantidade de vagas",
         blank=False,
         null=False

@@ -49,6 +49,10 @@ class VagaForm(
             'status'
         ]
 
+    def __init__(self, *args, **kwargs):
+        super(VagaForm, self).__init__(*args, **kwargs)
+        self.fields['id_vaga'].widget.attrs['placeholder'] = '2020/001'
+
 
 class CompetenciaSearchForm(tools_forms.BaseSearchForm):
     class Meta:

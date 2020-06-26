@@ -43,3 +43,15 @@
     {{ form.observacoes|as_bs4:"col-md-6" }}
   </div>
 {% endblock form_content %}
+
+{% block extra_js %}
+<script>
+  $(document).ready(function() {
+    $('#id_cpf').mask('000.000.000-00', {reverse: true});
+    $('#id_ddd').mask("(00)");
+    $('#id_celular').mask('99999-9999', {reverse: true});
+    $('#id_ddd2').mask("(00)");
+    $('#id_telefone').mask('9999-9999', {reverse: true});
+  });
+</script>
+{% endblock extra_js %}
