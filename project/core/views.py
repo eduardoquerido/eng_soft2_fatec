@@ -21,6 +21,7 @@ class Home(
 ):
     template_name = 'home.html'
     current_section = 'home'
+    permission_required = []
 
 
 class UserListView(

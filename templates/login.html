@@ -1,43 +1,36 @@
-{% extends "base.html" %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
 
-{% block extra_css %}
-<style type="text/css">
-  .form-signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: 0 auto;
-  }
-  .form-signin .form-control {
-      position: relative;
-      box-sizing: border-box;
-      height: auto;
-      padding: 10px;
-      font-size: 16px;
-  }
-  .form-signin input[type="password"] {
-      margin-bottom: 10px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-  }
-  .form-signin input[type="email"] {
-      margin-bottom: -1px;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-  }
-</style>
-{% endblock extra_css %}
+    <title>Vagas Online - Área Administrativa</title>
 
-{% block navbarwrapper %}
-{% endblock navbarwrapper %}
-{% block content %}
-<form class="form-signin" method="POST">
-  {% csrf_token %}
-  <h1 class="h3 mb-3 font-weight-normal">Entrar</h1>
-  <label for="inputLogin" class="sr-only">E-mail</label>
-  <input type="text" id="inputLogin" name="username" class="form-control" placeholder="E-mail" required autofocus>
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-</form>
-{% endblock content %}
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'dist/css/bootstrap.min.css' %}">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  </head>
+
+  <body class="text-center">
+    <div class="col-md-3">
+      <div class="col">
+        <img class="mb-8" src="{% static '/theme/imgs/logo-gsw-en.svg' %}" alt="" width="182" height="182">
+      </div>
+      <form class="form-sigin" action="{% url 'login' %}" method="POST">
+          {% csrf_token %}
+          <div class="form-signin"> 
+              <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" name="username">
+          </div>
+          <div class="form-signin">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Senha" name="password">
+          </div>
+          <div class="form-signin">
+              <label class="form-check-label"><input type="checkbox"> Mantenha-me logado</label>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Login</button>
+      </form>
+  </div>
+  </body>
+</html>

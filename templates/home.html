@@ -1,10 +1,55 @@
-{% extends "base.html" %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'theme/style.css' %}">
+    <link rel="stylesheet" href="{% static '@fortawesome/fontawesome-free/css/all.min.css' %}">
+    <title>Vagas Online</title>
+    <style>
+    #logo-home{
+        float:left;
+        width:20%;
+        padding-top:25px;
+    }
 
-{% block content %}
+    </style>
+</head>
+<body class="bg-light">
+    <div class="jumbotron bg-dark-blue">
+        <div class="container">
+            <div class="row">
+            	<div class="col-md-12">
+                	<img id="logo-home" src="{% static '/theme/imgs/logo-gsw-en.svg' %}" alt="logo GSW">
+            	</div>
+                <div class="col-md-11">
+                    <h1 class="display-3 text-white text-nowrap">Vagas Online</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Cadastre seu Currículo</h2>
+                <p>Cadastro rápido e fácil... <a class="btn btn-secondary" href="#" role="button">saiba mais em ... &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Vagas Disponíveis</h2>
+                <p><a class="btn btn-secondary" href="{% url 'login'%}" role="button">saiba mais em ... &raquo;</a></p>
+            </div>
+        <div class="col-md-1" style="padding-left: 300px">
+    		<a class="btn btn-secondary" href="{% url 'login' %}"> Login</a>
+        </div>        
+        </div>
+    </div> <!-- /container -->
+</main>
 
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  <h1 class="display-4">Título</h1>
-  <p class="lead">Texto Texto Texto Texto Texto</p>
-</div>
+<script src="{% static 'js/jquery-3.4.0.min.js' %}"></script>
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 
-{% endblock content %}
+</body>
+</html>
