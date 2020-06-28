@@ -21,10 +21,10 @@
             <a class="p-2 text-dark" href="#">Link1</a>
             <a class="p-2 text-dark" href="#">Link2</a>
          </nav>
-         {% if not user.is_authenticated %}
-         <a class="btn btn-outline-primary" href="/login/">Entrar</a>
-         {% else %}
+         {% if user.is_authenticated %}
          <a class="btn btn-outline-primary" href="/logout/">Sair</a>
+         {% else %}
+         <a class="btn btn-outline-primary" href="/">Home</a>
          {% endif %}
       </div>
       {% if user.is_authenticated %}

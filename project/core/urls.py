@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.Home.as_view(), name='home'),
     path('vagas/', include([
         path(
-            '',
+            'publico',
             views.PublicVagaListView.as_view(),
             name='pub_vagas'
         ),
