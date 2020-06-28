@@ -1,39 +1,83 @@
 {% extends "components/base_form.html" %}
 {% load bs4_form %}
-
+{% load static %}
+{% block extra_css  %}
+ <style> 
+  .disabledbutton {
+      pointer-events: none;
+      opacity: 0.7;
+      background-color: #A9A9A9;
+  }
+</style>
+{% endblock extra_css %}
 
 {% block form_content %}
-  <div class="row">
-    {{ form.status|as_bs4:"col-md-4" }}
-    {{ form.id_vaga|as_bs4:"col-md-4" }}
-  </div>
-  <div class="row">
-    {{ form.nome_vaga|as_bs4:"col-md-5 col-sm-8" }}
-    {{ form.qtd_vaga|as_bs4:"col-md-2 col-sm-3" }}
-    {{ form.horario_trab|as_bs4:"col-md-2 col-sm-3" }}
-  </div>
-  <div class="row">
-    {{ form.categoria|as_bs4:"col-md-3 col-sm-4" }}
-    {{ form.competencia|as_bs4:"col-md-5 col-sm-8" }}
-  </div>
-  <div class="row">
-    {{ form.cidade|as_bs4:"col-md-3 col-sm-4" }}
-  </div>
-  <div class="row">
-    {{ form.beneficios|as_bs4:"col-md-6" }}
-  </div>
-  <div class="row">
-    {{ form.descricao|as_bs4:"col-md-6" }}
-  </div>
-  <div class="row">
-    {{ form.exp_requerida|as_bs4:"col-md-6" }}
-  </div>
+  {% if user.is_authenticated %}
+    <div class="row">
+      {{ form.status|as_bs4:"col-md-4" }}
+      {{ form.id_vaga|as_bs4:"col-md-2" }}
+    </div>
+    <div class="row">
+      {{ form.nome_vaga|as_bs4:"col-md-5 col-sm-8" }}
+      {{ form.qtd_vaga|as_bs4:"col-md-2 col-sm-3" }}
+      {{ form.horario_trab|as_bs4:"col-md-2 col-sm-3" }}
+    </div>
+    <div class="row">
+      {{ form.categoria|as_bs4:"col-md-3 col-sm-4" }}
+      {{ form.competencia|as_bs4:"col-md-5 col-sm-8" }}
+    </div>
+    <div class="row">
+      {{ form.cidade|as_bs4:"col-md-3 col-sm-4" }}
+    </div>
+    <div class="row">
+      {{ form.beneficios|as_bs4:"col-md-6" }}
+    </div>
+    <div class="row">
+      {{ form.descricao|as_bs4:"col-md-6" }}
+    </div>
+    <div class="row">
+      {{ form.exp_requerida|as_bs4:"col-md-6" }}
+    </div>
+
+  {% else %}
+    <div id="public" class="row">
+      {{ form.id_vaga|as_bs4:"col-md-2" }}
+    </div>
+    <div id="public2" class="row">
+      {{ form.nome_vaga|as_bs4:"col-md-5 col-sm-8" }}
+      {{ form.qtd_vaga|as_bs4:"col-md-2 col-sm-3" }}
+      {{ form.horario_trab|as_bs4:"col-md-2 col-sm-3" }}
+    </div>
+    <div id="public3" class="row">
+      {{ form.categoria|as_bs4:"col-md-3 col-sm-4" }}
+      {{ form.competencia|as_bs4:"col-md-5 col-sm-8" }}
+    </div>
+    <div id="public4" class="row">
+      {{ form.cidade|as_bs4:"col-md-3 col-sm-4" }}
+    </div>
+    <div id="public5" class="row">
+      {{ form.beneficios|as_bs4:"col-md-12" }}
+    </div>
+    <div id="public6" class="row">
+      {{ form.descricao|as_bs4:"col-md-12" }}
+    </div>
+    <div id="public7" class="row">
+      {{ form.exp_requerida|as_bs4:"col-md-12" }}
+    </div>
+  {% endif %}
 {% endblock form_content %}
 
 {% block extra_js %}
 <script>
   $(document).ready(function() {
     $('#id_id_vaga').mask('0000/000', {reverse: true});
+    $("#public").addClass("disabledbutton");
+    $("#public2").addClass("disabledbutton");
+    $("#public3").addClass("disabledbutton");
+    $("#public4").addClass("disabledbutton");
+    $("#public5").addClass("disabledbutton");
+    $("#public6").addClass("disabledbutton");
+    $("#public7").addClass("disabledbutton");
   });
 </script>
 {% endblock extra_js %}

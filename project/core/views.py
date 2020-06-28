@@ -8,6 +8,11 @@ from tools.views import JSONResponseView
 from tools.views import base as tools_views
 from tools.views import mixins as tools_mixins
 
+from vagas.forms import (VagaForm, VagaSearchForm,
+                         CompetenciaForm, CompetenciaSearchForm,
+                         CandidatoForm, CandidatoSearchForm,
+                         HabilidadeSearchForm, HabilidadeForm)
+from vagas.models import (Vaga, Competencia, Candidato, Habilidade)
 
 def logout_view(request):
     logout(request)
@@ -22,6 +27,27 @@ class Home(
     template_name = 'home.html'
     current_section = 'home'
     permission_required = []
+
+
+class PublicVagaListView(
+    menu_mixin.ProjetoMenuMixin,
+    tools_views.BaseListView
+):
+    filter_by_user = False
+    template_name = 'public_vaga_list.html'
+    permission_required = []
+    form_class = VagaSearchForm
+
+
+class PublicVagaUpdateView(
+    menu_mixin.ProjetoMenuMixin,
+    tools_views.BaseUpdateView
+):
+    filter_by_user = False
+    detail_url = False
+    permission_required = []
+    model = Vaga
+    form_class = VagaForm
 
 
 class UserListView(
