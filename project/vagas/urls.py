@@ -13,6 +13,11 @@ urlpatterns = [
             views.VagaCreateView.as_view(),
             name='vaga_form'
         ),
+        path(
+            'publico',
+            views.VagaListView.as_view(),
+            name='pub_vagas'
+        ),
         # path(
         #     'json/',
         #     views.autofill_campos_ocupacaoimovel,

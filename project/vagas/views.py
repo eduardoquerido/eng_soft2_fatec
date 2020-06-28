@@ -15,7 +15,7 @@ class VagaListView(
     tools_views.BaseListView
 ):
     filter_by_user = False
-    permission_required = ''
+    permission_required = []
     form_class = VagaSearchForm
     current_section = 'vagas'
     sub_current_section = 'vagas'

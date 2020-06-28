@@ -29,27 +29,6 @@ class Home(
     permission_required = []
 
 
-class PublicVagaListView(
-    menu_mixin.ProjetoMenuMixin,
-    tools_views.BaseListView
-):
-    filter_by_user = False
-    template_name = 'public_vaga_list.html'
-    permission_required = []
-    form_class = VagaSearchForm
-
-
-class PublicVagaUpdateView(
-    menu_mixin.ProjetoMenuMixin,
-    tools_views.BaseUpdateView
-):
-    filter_by_user = False
-    detail_url = False
-    permission_required = []
-    model = Vaga
-    form_class = VagaForm
-
-
 class UserListView(
     menu_mixin.ProjetoMenuMixin,
     tools_views.BaseListView

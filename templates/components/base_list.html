@@ -27,11 +27,13 @@
                 {% endblock extra_card_head %}
                 {% block crete_url_block %}
                   {% if create_url %}
+                    {% if user.is_authenticated %}
                     <div class="float-right d-inline-block">
                       <a class="btn btn-sm btn-primary" href="{% url create_url %}">
                         <i class="fa fa-plus"></i> Adicionar
                       </a>
                     </div>
+                    {% endif %}
                   {% endif %}
                 {% endblock crete_url_block %}
               </div>

@@ -5,13 +5,6 @@ from . import views
 
 urlpatterns = [
     path('', views.Home.as_view(), name='home'),
-    path('vagas/', include([
-        path(
-            'publico',
-            views.PublicVagaListView.as_view(),
-            name='pub_vagas'
-        ),
-    ])),
     path(
         'login/',
         auth_views.LoginView.as_view(
