@@ -5,48 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'theme/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static '@fortawesome/fontawesome-free/css/all.min.css' %}">
     <title>Vagas Online</title>
-    <style>
-    #logo-home{
-        float:left;
-        width:20%;
-        padding-top:25px;
-    }
-
-    </style>
 </head>
-<body class="bg-light">
-    <div class="jumbotron bg-dark-blue">
-        <div class="container">
-            <div class="row">
-            	<div class="col-md-12">
-                	<img id="logo-home" src="{% static '/theme/imgs/logo-gsw-en.svg' %}" alt="logo GSW">
+<body>
+    <div class="home d-flex flex-column justify-content-start align-items-center">
+        <header class="header d-flex justify-content-center align-items-center bg-light">
+            <div class="header-wrapper d-flex justify-content-center align-items-center px-3">
+                <h1 class="text-nowrap m-0 header-title">Vagas Online</h1>
+            	<div class="logo-wrapper">
+                    <a href="https://www.gsw.com.br/" target="_blank">
+                	   <img id="logo-home" src="{% static '/theme/imgs/logo-gsw-en.svg' %}" alt="logo GSW" class="p-0">
+                    </a>
             	</div>
-                <div class="col-md-11">
-                    <h1 class="display-3 text-white text-nowrap">Vagas Online</h1>
-                </div>
             </div>
+        </header>
+        <div class="home-content my-4 d-flex flex-column justify-content-around align-items-start px-3">
+            <div class="home-content__wrapper">
+                <h2>Cadastre seu Currículo</h2>
+                <p>Cadastre seu currículo e fique por dentro de nossas vagas.</p>
+                 <a class="btn btn-action" href="#" role="button">Cadastrar</a>
+            </div>
+            <div class="home-content__wrapper">
+                <h2>Vagas Disponíveis</h2>
+                <a class="btn btn-action" href="{% url 'pub_vagas'%}" role="button">Ver vagas</a>
+            </div>
+            <div class="col-md-1" style="padding-left: 300px">
+        		<a class="btn btn-action" href="{% url 'login' %}"> Login</a>
+            </div>        
         </div>
     </div>
-    <div class="container">
-        <!-- Example row of columns -->
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Cadastre seu Currículo</h2>
-                <p>Cadastro rápido e fácil... <a class="btn btn-secondary" href="#" role="button">saiba mais em ... &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Vagas Disponíveis</h2>
-                <p><a class="btn btn-secondary" href="{% url 'pub_vagas'%}" role="button">saiba mais em ... &raquo;</a></p>
-            </div>
-        <div class="col-md-1" style="padding-left: 300px">
-    		<a class="btn btn-secondary" href="{% url 'login' %}"> Login</a>
-        </div>        
-        </div>
-    </div> <!-- /container -->
-</main>
-
 <script src="{% static 'js/jquery-3.4.0.min.js' %}"></script>
 <script src="{% static 'js/jquery.mask.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
