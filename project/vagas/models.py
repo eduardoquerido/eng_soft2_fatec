@@ -249,5 +249,19 @@ class Vaga(UserAdd, UserUpd):
         null=True
     )
 
+    def get_cidade(self):
+        num_cidade = self.cidade
+        return self.get_value_on_choice_list(num_cidade, ESTADOS)
+
+    def get_categoria(self):
+        num_categoria = self.categoria
+        return self.get_value_on_choice_list(num_categoria, CATEGORIAS)
+
+    def get_value_on_choice_list(self, number, choice_list):
+        for index, choice in choice_list:
+            if index == number:
+                return choice
+        return None         
+
     def __str__(self):
         return self.nome_vaga
