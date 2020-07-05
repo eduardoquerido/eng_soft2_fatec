@@ -7,12 +7,12 @@
 
 {% comment %}
 {% block page_header %}
-  <h3 class="title">{{ pagename|capfirst }}</h3>
+  <h3 class="title my-4">{{ pagename|capfirst }}</h3>
 {% endblock page_header %}
 {% endcomment %}
 
 {% block sub_page_name %}
-  <h3 class="title">{{ sub_pagename|default:model_verbose_name_plural|capfirst }}</h3>
+  <h3 class="title my-4">{{ sub_pagename|default:model_verbose_name_plural|capfirst }}</h3>
 {% endblock sub_page_name %}
 
 {% block content %}
@@ -22,7 +22,7 @@
         <div class="col col-md-12">
           <div class="card card-primary">
             {% block card_header %}
-              <div class="card-header bg-ligth">
+              <div class="card-header bg-light">
                 {% block extra_card_head %}
                 {% endblock extra_card_head %}
                 {% block crete_url_block %}
@@ -30,7 +30,7 @@
                     {% if user.is_authenticated %}
                     <div class="float-right d-inline-block">
                       <a class="btn btn-sm btn-primary" href="{% url create_url %}">
-                        <i class="fa fa-plus"></i> Adicionar
+                        <i class="fa fa-plus white-icon"></i> Adicionar
                       </a>
                     </div>
                     {% endif %}
@@ -43,8 +43,8 @@
                 <div class="form-row justify-content-between d-print-none">
                   <div class="form-group col-md-6">
                     <label for="id_q">Pesquisar</label>
-                    <div class="input-group mb-0">
-                      <input id="q" value="{{ form.q.value|default:'' }}" type="text" name="q" class="form-control" placeholder="{{ form.get_q_placeholder }}">
+                    <div class="input-group mb-0 base-input-search">
+                      <input id="q" value="{{ form.q.value|default:'' }}" type="text" name="q" class="form-control" placeholder="{{ form.get_q_placeholder }}" />
                       <div class="input-group-append">
                         <button
                           class="btn btn-sm btn-primary"
@@ -52,7 +52,7 @@
                           title="Filtrar"
                           data-placement="top"
                           type="submit">
-                          <i class="fa fa-search"></i>
+                          <i class="fa fa-search white-icon"></i>
                         </button>
                         <button
                           id="btn_clean"
@@ -61,7 +61,7 @@
                           title="Limpar Filtro"
                           data-placement="top"
                           type="button">
-                          <i class="fa fa-times"></i>
+                          <i class="fa fa-times white-icon"></i>
                         </button>
                         {% if has_advanced_search %}
                           <button
@@ -95,7 +95,7 @@
                 {% endif %}
               </form>
               {% block table_options %}{% endblock table_options %}
-              <div class="table-responsive mb-2">
+              <div class="table-responsive mt-5">
                 <table class="table table-sm table-striped table-bordered table-hover mb-0">
                   {% block table_content %}{% endblock table_content %}
                 </table>

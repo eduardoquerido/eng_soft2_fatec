@@ -1,7 +1,7 @@
 
 CATEGORIAS = [
     (1, "Engenharia Civil"),
-    (2, "Martketing"),
+    (2, "Marketing"),
     (3, "Tecnologia (TI)"),
 ]
 

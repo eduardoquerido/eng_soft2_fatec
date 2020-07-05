@@ -63,7 +63,7 @@ h2 {
 	margin-right: auto !important;
 }
 
-.home-content{
+.home-container{
 	height: 100%;
 	max-width: 1200px;
 	width: 100%;
@@ -73,6 +73,7 @@ h2 {
 	align-items: start;
 	display: flex;
 	flex-direction: column;
+	height: 50%;
 	justify-content: space-around;
 }
 
@@ -83,6 +84,22 @@ h2 {
 .home-content__wrapper p {
 	font-size: 16px;
 	margin: 0;
+}
+
+.container__content {
+	height: 300px;
+	margin: 45px 0px;
+	width: 100%;
+}
+
+.home-content__image-wrapper {
+	height: 200px;
+	width: 300px;
+}
+
+.home-content__image-wrapper img {
+	max-height: 100%;
+	max-width: 100%;
 }
 
 .btn-action {

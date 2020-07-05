@@ -7,8 +7,8 @@
                         class="nav-link"
                         href="{% if secao.url != '#' %}{% url secao.url %}{% else %}{{ secao.url }}{% endif %}"
                     >
-                        <i class="fa {{ secao.icon }}"></i>
-                        {{ label }}
+                        <i class="fa {{ secao.icon }} blue-icon"></i>
+                        <span class="blue-label">{{ label }}</span>
                     </a>
                 </li>
             {% else %}
@@ -22,8 +22,8 @@
                         aria-haspopup="true"
                         aria-expanded="false"
                     >
-                        <i class="fa {{ secao.icon }}"></i>
-                        {{ label }}
+                        <i class="fa {{ secao.icon }} blue-icon"></i>
+                        <span class="blue-label">{{ label }}</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="md_{{ forloop.counter }}">
                         {% for item in secao.subsections %}
