@@ -43,25 +43,16 @@
                 <div class="form-row justify-content-between d-print-none">
                   <div class="form-group col-md-6">
                     <label for="id_q">Pesquisar</label>
-                    <div class="input-group mb-0 base-input-search">
-                      <input id="q" value="{{ form.q.value|default:'' }}" type="text" name="q" class="form-control" placeholder="{{ form.get_q_placeholder }}" />
+                    <div class="input-group mb-0">
+                      <input id="q" value="{{ form.q.value|default:'' }}" type="text" name="q" class="form-control float-right search-input" placeholder="{{ form.get_q_placeholder }}" />
                       <div class="input-group-append">
                         <button
                           class="btn btn-sm btn-primary"
                           data-toggle="tooltip"
-                          title="Filtrar"
+                          title="Pesquisar"
                           data-placement="top"
                           type="submit">
                           <i class="fa fa-search white-icon"></i>
-                        </button>
-                        <button
-                          id="btn_clean"
-                          class="btn btn-sm btn-outline-primary"
-                          data-toggle="tooltip"
-                          title="Limpar Filtro"
-                          data-placement="top"
-                          type="button">
-                          <i class="fa fa-times white-icon"></i>
                         </button>
                         {% if has_advanced_search %}
                           <button
@@ -94,6 +85,9 @@
                 </div>
                 {% endif %}
               </form>
+              {% if form.q.value %}
+                <span>Mostrando resultados para <span class="blue-label">{{ form.q.value }}</span></span>
+              {% endif %}
               {% block table_options %}{% endblock table_options %}
               <div class="table-responsive mt-5">
                 <table class="table table-sm table-striped table-bordered table-hover mb-0">
