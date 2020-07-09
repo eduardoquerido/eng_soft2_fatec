@@ -9,7 +9,7 @@
       background-color: #A9A9A9;
   }
 </style>
-{% endblock extra_css %}
+{% endblock extra_css %} 
 
 {% block form_content %}
   {% if user.is_authenticated %}
@@ -50,20 +50,23 @@
     </div>
     <div id="public3" class="row">
       {{ form.categoria|as_bs4:"col-md-3 col-sm-4" }}
-      {{ form.competencia|as_bs4:"col-md-5 col-sm-8" }}
-    </div>
-    <div id="public4" class="row">
+      {{ form.competencia|as_bs4:"col-md-3 col-sm-8" }}
       {{ form.cidade|as_bs4:"col-md-3 col-sm-4" }}
     </div>
-    <div id="public5" class="row">
-      {{ form.beneficios|as_bs4:"col-md-12" }}
+    <div id="public4" class="row">
+      {{ form.beneficios|as_bs4:"col-md-3" }}
     </div>
-    <div id="public6" class="row">
+    <div id="public5" class="row">
       {{ form.descricao|as_bs4:"col-md-12" }}
     </div>
-    <div id="public7" class="row">
+    <div id="public6" class="row">
       {{ form.exp_requerida|as_bs4:"col-md-12" }}
     </div>
+
+    <h3>Procure pelo <strong>CPF</strong> ou <strong>NOME</strong> para se candidatar</h3>
+    <div class="row">
+      {{ form.candidato|as_bs4:"col-md-4" }}
+    </div>    
   {% endif %}
 {% endblock form_content %}
 

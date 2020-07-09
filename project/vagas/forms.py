@@ -1,8 +1,7 @@
 from django import forms
 from tools import forms as tools_forms
-from vagas.models import (Vaga, Competencia, Candidato, Habilidade)
+from vagas.models import (Vaga, Competencia, Candidato, Habilidade, Beneficio)
 from django_select2.forms import ModelSelect2MultipleWidget
-from vagas.choices import (BENEFICIOS)
 
 
 class VagaSearchForm(tools_forms.BaseSearchForm):
@@ -14,13 +13,26 @@ class VagaSearchForm(tools_forms.BaseSearchForm):
         ]
 
 
+class VagaCandidatoSearchForm(tools_forms.BaseSearchForm):
+    class Meta:
+        base_qs = Vaga.objects.filter()
+        search_fields = [
+            'candidato',
+        ]
+
 class VagaForm(
     forms.ModelForm
 ):
 
-    beneficios = forms.MultipleChoiceField(
-        choices=BENEFICIOS,
-        widget=forms.CheckboxSelectMultiple,
+    beneficios = forms.ModelMultipleChoiceField(
+        queryset=Beneficio.objects.all(),
+        required=True,
+        widget=ModelSelect2MultipleWidget(
+            model=Beneficio,
+            search_fields=[
+                'nome__icontains',
+            ]
+        )
     )
 
     competencia = forms.ModelMultipleChoiceField(
@@ -34,6 +46,18 @@ class VagaForm(
         )
     )
 
+    candidato = forms.ModelMultipleChoiceField(
+        queryset=Candidato.objects.all(),
+        required=False,
+        widget=ModelSelect2MultipleWidget(
+            model=Candidato,
+            search_fields=[
+                'nome__icontains',
+                'cpf__icontains'
+            ]
+        )
+    )
+
     class Meta:
         model = Vaga
         fields = [
@@ -42,11 +66,13 @@ class VagaForm(
             'qtd_vaga',
             'categoria',
             'cidade',
+            'beneficios',
             'competencia',
             'horario_trab',
             'descricao',
             'exp_requerida',
-            'status'
+            'status',
+            'candidato',
         ]
 
     def __init__(self, *args, **kwargs):

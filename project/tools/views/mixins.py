@@ -14,17 +14,17 @@ from django.urls import reverse_lazy
 
 
 try:
-    SIDEBAR_MENU = settings.NECTOOLS_SIDEMENU
+    SIDEBAR_MENU = settings.SIDEMENU
 except AttributeError:
     SIDEBAR_MENU = None
 
 try:
-    SIDEBAR_MENU_ADM = settings.NECTOOLS_SIDEMENU_ADM
+    SIDEBAR_MENU_ADM = settings.SIDEMENU_ADM
 except AttributeError:
     SIDEBAR_MENU_ADM = None
 
 try:
-    adm_menu_perms = settings.NECTOOLS_ADM_MENU_PERMS
+    adm_menu_perms = settings.ADM_MENU_PERMS
 except AttributeError:
     adm_menu_perms = []
 
@@ -277,7 +277,7 @@ class FailureMessageMixin(object):
         return response
 
     def get_failure_message(self, errors):
-        return self.failure_message % errors
+        return errors
 
 
 class FormMessagesMixin(SuccessMessageMixin, FailureMessageMixin):

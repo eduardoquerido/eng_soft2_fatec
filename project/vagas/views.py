@@ -6,8 +6,10 @@ from django.http import JsonResponse
 from vagas.forms import (VagaForm, VagaSearchForm,
                          CompetenciaForm, CompetenciaSearchForm,
                          CandidatoForm, CandidatoSearchForm,
-                         HabilidadeSearchForm, HabilidadeForm)
+                         HabilidadeSearchForm, HabilidadeForm,
+                         VagaCandidatoSearchForm)
 from vagas.models import (Vaga, Competencia, Candidato, Habilidade)
+from datetime import date, datetime
 
 
 class VagaListView(
@@ -20,6 +22,15 @@ class VagaListView(
     current_section = 'vagas'
     sub_current_section = 'vagas'
 
+class VagaCandidatoListView(
+    menu_mixin.ProjetoMenuMixin,
+    tools_views.BaseListView
+):
+    filter_by_user = False
+    permission_required = ''
+    form_class = VagaCandidatoSearchForm
+    current_section = 'vagas'
+    sub_current_section = 'vagas'
 
 class VagaCreateView(
     menu_mixin.ProjetoMenuMixin,

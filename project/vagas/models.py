@@ -1,6 +1,6 @@
 from django.db import models
 
-from vagas.choices import (CATEGORIAS, BENEFICIOS, HORARIO_TRAB, ESTADOS)
+from vagas.choices import (CATEGORIAS, HORARIO_TRAB, ESTADOS)
 from core.models import (UserAdd, UserUpd)
 
 
@@ -68,6 +68,24 @@ class Habilidade(UserAdd, UserUpd):
         return self.nome
 
 
+class Beneficio(models.Model):
+    '''
+    Essa classe serve para definir os beneficios que poderão ser cadastrados
+    a fim de demonstrar quais beneficios o candidato terá ao ser contrato pela vaga escolhida.
+
+    Ex: Este modelo será preenchido por uma fixture, um pré carregamento de valores
+    ao banco de dados
+    '''
+    nome = models.CharField(
+        verbose_name="Beneficio",
+        max_length=20,
+        blank=False,
+        null=False
+    )
+
+    def __str__(self):
+        return self.nome
+
 class Candidato(UserUpd, UserAdd):
 
     class Sexo:
@@ -96,7 +114,7 @@ class Candidato(UserUpd, UserAdd):
     )
     cpf = models.CharField(
         verbose_name="CPF",
-        max_length=11,
+        max_length=20,
         blank=False,
         null=False
     )
@@ -182,7 +200,7 @@ class Candidato(UserUpd, UserAdd):
         return self.nome
 
 
-class Vaga(UserAdd, UserUpd):
+class Vaga(models.Model):
 
     STATUS = [
         (1, "Ativo"),
@@ -200,7 +218,11 @@ class Vaga(UserAdd, UserUpd):
         null=False,
         unique=True
     )
-    status = models.SmallIntegerField(choices=STATUS)
+    status = models.SmallIntegerField(
+        choices=STATUS,
+        blank=True,
+        null=True
+    )
     nome_vaga = models.CharField(
         verbose_name="Denominação da Vaga",
         max_length=100,
@@ -215,6 +237,11 @@ class Vaga(UserAdd, UserUpd):
     competencia = models.ManyToManyField(
         Competencia,
         verbose_name="Competências da Vaga",
+        blank=True,
+    )
+    beneficios = models.ManyToManyField(
+        Beneficio,
+        verbose_name="Benefícios da Vaga",
         blank=True,
     )
     categoria = models.SmallIntegerField(
@@ -232,11 +259,6 @@ class Vaga(UserAdd, UserUpd):
         choices=HORARIO_TRAB,
         blank=True,
         null=True
-    )
-    beneficios = models.SmallIntegerField(
-        choices=BENEFICIOS,
-        blank=True,
-        null=True,
     )
     descricao = models.TextField(
         verbose_name="Descrição da Vaga",
@@ -257,11 +279,14 @@ class Vaga(UserAdd, UserUpd):
         num_categoria = self.categoria
         return self.get_value_on_choice_list(num_categoria, CATEGORIAS)
 
+    def get_quantidade_candidatos(self):
+        return self.candidato.count()
+
     def get_value_on_choice_list(self, number, choice_list):
         for index, choice in choice_list:
             if index == number:
                 return choice
-        return None         
+        return None
 
     def __str__(self):
         return self.nome_vaga

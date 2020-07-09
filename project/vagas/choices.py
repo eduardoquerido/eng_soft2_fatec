@@ -14,13 +14,6 @@ HORARIO_TRAB = [
     (6, "3.º Turno"),
 ]
 
-BENEFICIOS = [
-    (1, "Previdência Privada"),
-    (2, "Convênio Médico"),
-    (3, "Vale Alimentação"),
-    (4, "Vale Transporte"),
-]
-
 ESTADOS = [
     (1, "Acre (AC)"),
     (2, "Alagoas (AL)"),

@@ -27,7 +27,7 @@ urlpatterns = [
             '<int:pk>/',
             views.VagaUpdateView.as_view(),
             name='vaga_form'
-        ),
+        )
     ])),
     path('competencias/', include([
         path(
