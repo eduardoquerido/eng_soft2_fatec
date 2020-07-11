@@ -60,6 +60,10 @@ body {
 	max-width: 100%;
 }
 
+.header-link:hover {
+	text-decoration: none;
+}
+
 .job-wrapper {
     width: 55%;
 }

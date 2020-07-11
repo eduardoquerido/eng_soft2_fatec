@@ -12,7 +12,7 @@
     {{ form.cpf|as_bs4:"col-md-3 col-sm-5" }}
     {{ form.email|as_bs4:"col-md-4 col-sm-8" }}
   </div>
-  <div class="row">
+  <div class="row mb-5">
     {{ form.ddd|as_bs4:"col-md-1 col-sm-3" }}
     {{ form.celular|as_bs4:"col-md-3 col-sm-5" }}
     {{ form.ddd2|as_bs4:"col-md-1 col-sm-3" }}
@@ -27,21 +27,21 @@
     {{ form.numero_end|as_bs4:"col-md-3 col-sm-4" }}
     {{ form.complemento|as_bs4:"col-md-3 col-sm-4" }}
   </div>
-  <div class="row">
+  <div class="row mb-5">
     {{ form.cidade|as_bs4:"col-md-3 col-sm-4" }}
     {{ form.estado|as_bs4:"col-md-3 col-sm-4" }}
   </div>
   <h3 class="strong" style="text-decoration: underline;">Informações de Formação/Currículo</h3>
-  <div class="row">
+  <div class="row mb-5">
     {{ form.curriculo|as_bs4:"col-md-6" }}
   </div>
 
   {% if user.is_authenticated %}
     <h4 class="strong" style="text-decoration: underline;">Campos Reservados (Somente Usuários do sistema)</h4>
-    <div class="row">
+    <div class="row my-3">
       {{ form.habilidades|as_bs4:"col-md-6" }}
     </div>
-    <div class="row"> 
+    <div class="row">
       {{ form.observacoes|as_bs4:"col-md-6" }}
     </div>
   {% endif %}
