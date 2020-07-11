@@ -1,6 +1,7 @@
 from django import forms
 from tools import forms as tools_forms
 from vagas.models import (Vaga, Competencia, Candidato, Habilidade, Beneficio)
+from vagas.choices import (CATEGORIAS, HORARIO_TRAB, ESTADOS)
 from django_select2.forms import ModelSelect2MultipleWidget
 
 
@@ -57,6 +58,28 @@ class VagaForm(
             ]
         )
     )
+
+    def get_competencia(self):
+        return [label for value, label in self.fields['competencia'].choices if value in self['competencia'].value()]
+
+    def get_cidade(self):
+        num_cidade = self["cidade"].value()
+        return self.get_value_on_choice_list(num_cidade, ESTADOS)
+
+    def get_categoria(self):
+        num_categoria = self["categoria"].value()
+        return self.get_value_on_choice_list(num_categoria, CATEGORIAS)
+
+    def get_horario_trab(self):
+        num_horario_trab = self["horario_trab"].value()
+        return self.get_value_on_choice_list(num_horario_trab, HORARIO_TRAB)
+
+    def get_value_on_choice_list(self, number, choice_list):
+        for index, choice in choice_list:
+            if index == number:
+                return choice
+        return None
+
 
     class Meta:
         model = Vaga

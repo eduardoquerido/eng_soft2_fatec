@@ -63,3 +63,68 @@ body {
 .job-wrapper {
     width: 55%;
 }
+
+.total-candidates {
+	margin-right: 70px;
+}
+
+.job-title {
+	width: 100%;
+}
+
+.job-description {
+	max-width: 50%;
+}
+
+.aside-card {
+	border-radius: 10px;
+	background-color: var(--main-blue);
+	position: sticky;
+	top: 50px;
+	float: right;
+	width: 350px;
+	-webkit-box-shadow: 0px 0px 13px 0px rgba(143,143,143,1);
+	-moz-box-shadow: 0px 0px 13px 0px rgba(143,143,143,1);
+	box-shadow: 0px 0px 13px 0px rgba(143,143,143,1);
+}
+
+.aside-card p,
+ .aside-card h3 {
+	color: #fff !important;
+}
+
+.secondary-btn {
+	background-color: #fff !important;
+	border: solid 2px #fff !important;
+	color: var(--main-blue) !important;
+}
+
+.secondary-btn:hover {
+	background-color: var(--main-blue);
+	color: #fff;
+}
+
+#modal-container {
+	align-items:center;
+	background-color: rgba(0, 0, 0, .6);
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
+	justify-content: center;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	z-index: 10;
+}
+
+.modal-wrapper {
+	background-color: #fff;
+	border-radius: 10px;
+	height: 320px;
+	width: 600px;
+}
+
+#close-modal {
+	font-size: 2em !important;
+}
