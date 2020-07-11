@@ -14,11 +14,11 @@
       <h5 class="text-capitalize font-weight-bold my-2">{{ obj.get_cidade }}</h5>
     </div>
       {% if user.is_authenticated %}
-    <div>
+    <div class="total-candidates text-center ml-auto">
       <span>Total de Candidatados</span>
       <h5 class="text-capitalize font-weight-bold my-2">{{ obj.get_quantidade_candidatos }}</h5>
     </div>
-    
+
     <div>
       <a href="{% url update_url obj.pk %}" class="btn">
 
