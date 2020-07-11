@@ -86,7 +86,7 @@ class Beneficio(models.Model):
     def __str__(self):
         return self.nome
 
-class Candidato(UserUpd, UserAdd):
+class Candidato(models.Model):
 
     class Sexo:
         MASCULINO = 1

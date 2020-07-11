@@ -78,6 +78,12 @@
                     {% block extra_save_btn %}
                     {% endblock extra_save_btn %}
                     {% block save_btn %}
+                    {% url 'pub_candidato_form' as view %}
+                    {% if request.path == view %}
+                      <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-plus-square white-icon"></i> {{ save_btn_label|default:'Registrar-se' }}
+                      </button>
+                    {% endif %}
                       {% if user.is_authenticated %}
                       <button class="btn btn-primary" type="submit">
                         <i class="fa fa-plus-square white-icon"></i> {{ save_btn_label|default:'Salvar' }}

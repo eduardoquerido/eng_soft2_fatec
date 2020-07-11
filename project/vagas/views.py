@@ -10,6 +10,7 @@ from vagas.forms import (VagaForm, VagaSearchForm,
                          VagaCandidatoSearchForm)
 from vagas.models import (Vaga, Competencia, Candidato, Habilidade)
 from datetime import date, datetime
+from django.shortcuts import redirect
 
 
 class VagaListView(
@@ -56,6 +57,10 @@ class VagaUpdateView(
     model = Vaga
     form_class = VagaForm
 
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form['candidato'].field.choices = {}
+        return form
 
 class CompetenciaListView(
     menu_mixin.ProjetoMenuMixin,
@@ -109,7 +114,7 @@ class CandidatoCreateView(
     tools_views.BaseCreateView
 ):
     filter_by_user = False
-    permission_required = ''
+    permission_required = []
     current_section = 'vagas'
     sub_current_section = 'candidatos'
     model = Candidato
@@ -122,7 +127,7 @@ class CandidatoUpdateView(
 ):
     filter_by_user = False
     detail_url = False
-    permission_required = ''
+    permission_required = []
     current_section = 'vagas'
     sub_current_section = 'candidatos'
     model = Candidato

@@ -1,6 +1,6 @@
 {% extends "components/base_form.html" %}
 {% load bs4_form %}
-
+{% load static %}
 
 {% block form_content %}
 <h3 class="strong" style="text-decoration: underline;">Dados Pessoais</h3>
@@ -35,13 +35,17 @@
   <div class="row">
     {{ form.curriculo|as_bs4:"col-md-6" }}
   </div>
-  <h4 class="strong" style="text-decoration: underline;">Campos Reservados (Somente Usuários do sistema)</h4>
-  <div class="row">
-    {{ form.habilidades|as_bs4:"col-md-6" }}
-  </div>
-  <div class="row"> 
-    {{ form.observacoes|as_bs4:"col-md-6" }}
-  </div>
+
+  {% if user.is_authenticated %}
+    <h4 class="strong" style="text-decoration: underline;">Campos Reservados (Somente Usuários do sistema)</h4>
+    <div class="row">
+      {{ form.habilidades|as_bs4:"col-md-6" }}
+    </div>
+    <div class="row"> 
+      {{ form.observacoes|as_bs4:"col-md-6" }}
+    </div>
+  {% endif %}
+
 {% endblock form_content %}
 
 {% block extra_js %}
@@ -55,3 +59,7 @@
   });
 </script>
 {% endblock extra_js %}
+
+
+
+

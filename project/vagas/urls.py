@@ -58,6 +58,11 @@ urlpatterns = [
             name='candidato_form'
         ),
         path(
+            'publico/novo/candidato',
+            views.CandidatoCreateView.as_view(),
+            name='pub_candidato_form'
+        ),
+        path(
             '<int:pk>/',
             views.CandidatoUpdateView.as_view(),
             name='candidato_form'
