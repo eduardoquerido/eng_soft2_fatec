@@ -25,7 +25,7 @@
 
 4. [Entrega - Sprint 4](https://github.com/eduardoquerido/eng_soft2_fatec/tree/master/documentacao/sprint_4)
 
-5. [Entrega - Sprint 5](#the-header)
+5. [Entrega - Sprint 5 - Final](https://github.com/eduardoquerido/eng_soft2_fatec/tree/master/documentacao/sprint_5)
 
-6. [Entrega - Sprint 6 - Final](#the-header)
+
 
