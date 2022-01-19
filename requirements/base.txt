@@ -19,7 +19,7 @@
 # Adicionae Libs Para PRODUCAO E Desenvolvimento abaixo
 # =====================================================
 
-Django==2.2
+Django==2.2.26
 psycopg2-binary==2.8.5
 rules==2.0.1
 Pillow==6.0.0
