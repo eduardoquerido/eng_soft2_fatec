@@ -23,5 +23,5 @@
 # Adicionae Libs Para Desenvolvimento abaixo
 # ==========================================
 
-ipython==7.14.0
+ipython==7.16.3
 pytest==5.4.2
